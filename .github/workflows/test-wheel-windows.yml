@@ -65,7 +65,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix: ${{ fromJSON(needs.compute-matrix.outputs.MATRIX) }}
-    if: ${{ github.repository_owner == 'nvidia' && !cancelled() }}
+    if: ${{ github.repository_owner == 'nv-gha-runners' && !cancelled() }}
     runs-on: "windows-${{ matrix.ARCH }}-gpu-${{ matrix.GPU }}-${{ matrix.DRIVER }}-1-testing"
     steps:
       - name: Checkout ${{ github.event.repository.name }}

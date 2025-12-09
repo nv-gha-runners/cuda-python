@@ -75,7 +75,7 @@ jobs:
       matrix: ${{ fromJSON(needs.compute-matrix.outputs.MATRIX) }}
     runs-on: "linux-${{ matrix.ARCH }}-gpu-${{ matrix.GPU }}-${{ matrix.DRIVER }}-1-testing"
     # The build stage could fail but we want the CI to keep moving.
-    if: ${{ github.repository_owner == 'nvidia' && !cancelled() }}
+    if: ${{ github.repository_owner == 'nv-gha-runners' && !cancelled() }}
     # Our self-hosted runners require a container
     # TODO: use a different (nvidia?) container
     container:
